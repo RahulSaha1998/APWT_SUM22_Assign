@@ -17,9 +17,10 @@ use App\Models\User;
 
 
 Route::get('/',[CustomAuthcontroller::class,'home']);
-Route::get('/login',[CustomAuthcontroller::class,'login']);
-Route::get('/registration',[CustomAuthcontroller::class,'registration']);
+Route::get('/login',[CustomAuthcontroller::class,'login'])->middleware('AlreadyLoggedIn');
+Route::get('/registration',[CustomAuthcontroller::class,'registration'])->middleware('AlreadyLoggedIn');
 Route::post('/regis-user',[CustomAuthcontroller::class,'registerUser'])->name('register-user');
 Route::post('/login-user',[CustomAuthcontroller::class,'loginUser'])->name('login-user');
-Route::get('/dashboard',[CustomAuthcontroller::class,'dashboard']);
+Route::get('/dashboard',[CustomAuthcontroller::class,'dashboard'])->middleware('isLoggedIn');
 Route::get('/auth.list',[CustomAuthcontroller::class,'list']);
+Route::get('/logout',[CustomAuthcontroller::class,'logout']);

@@ -11,15 +11,16 @@
     <div class="container">
         <div class="row">
         <div class="col-md-4 col-md-offset-4" style="margin-top:20px;">
-             <h4>Login Here!</h4>
+            
+        <h4>Login Here!</h4>
              <hr>    
                 <form action="{{route('login-user')}}" method="post">
-                    <!-- @if(Session::has('success'))
-                    <div class="alert alert-success">{{Session::get('session')}}</div>
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
                     @if(Session::has('fail'))
                     <div class="alert alert-danger">{{Session::get('fail')}}</div>
-                    @endif -->
+                    @endif 
                     @csrf
                     <div class="form-group">
                     Email : <input type="text" class="form-control" value="{{old('email')}}" name="email"> </br>
